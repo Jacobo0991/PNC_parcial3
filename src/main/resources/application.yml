@@ -1,9 +1,26 @@
 spring:
+  application:
+    name: parcial3
   datasource:
     url: jdbc:postgresql://localhost:5432/supportdb
     username: postgres
-    password: root
+    password: admin123
   jpa:
     hibernate:
       ddl-auto: update
     show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:3030/realms/Parcial3
+keycloak:
+  server-url: http://localhost:3030
+  realm: Parcial3
+  client-id: parcial-client
+  client-secret: MsGEvXpjxTdbaPSAn2kRSyCH9ZuihnHE
+server:
+  port: 8080
